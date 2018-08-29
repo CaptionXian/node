@@ -1,0 +1,11 @@
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+.DS_Store
+node_modules
+dummy
+version.json
+package.json.swp
+debug
