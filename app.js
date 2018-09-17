@@ -12,9 +12,12 @@ const users = require('./routes/users')
 // error handler
 onerror(app)
 
+// mongo
+require('./lib/services/mongo')
+
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes:['json', 'form', 'text', 'xml']
 }))
 app.use(json())
 app.use(logger())

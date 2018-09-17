@@ -1,0 +1,10 @@
+---
+PORT: 3006
+MONGODB:
+  URL: 'mongodb://127.0.0.1:27017/hospital'
+  DB: 'hospital'
+
+WECHAT:
+  APP_ID: 'wx8b48a6a3cccb1a2d'
+  APP_SECRET: '7d4fbf54118a9b64c2ca319735a7d6db'
+  SCOPE: 'snsapi_userinfo'
