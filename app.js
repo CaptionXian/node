@@ -15,6 +15,15 @@ onerror(app)
 // mongo
 require('./lib/services/mongo')
 
+app.use(
+  cors({
+    origin: '*',
+    credentials: true,
+    allowMethods: ['GET', 'POST', 'DELETE', 'PUT', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+  })
+)
+
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text', 'xml']
