@@ -7,14 +7,15 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa2-cors')
 
+// mongo
+require('./lib/services/mongo')
+
 const index = require('./routes/index')
 const users = require('./routes/users')
+const hospital = require('./routes/hospital')
 
 // error handler
 onerror(app)
-
-// mongo
-require('./lib/services/mongo')
 
 app.use(
   cors({
@@ -48,6 +49,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(hospital.routes(), hospital.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
