@@ -235,6 +235,110 @@ router.delete(
 )
 
 router.post(
+    '/wellness',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            title: { type: 'string', maxLength: 200 },
+            content: { type: 'string', maxLength: 500 },
+            imgUrl: { type: 'string', maxLength: 200 }
+        },
+        required: ['title', 'content', 'imgUrl']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.createHospitalWellnessAPI(ctx, next)
+    }
+)
+
+router.get('/wellness', async (ctx, next) => {
+    await hospitalCtrl.getHospitalWellnessAPI(ctx, next)
+  }
+)
+
+router.put(
+    '/wellness/:_id',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: "objectid" },
+            title: { type: 'string', maxLength: 200 },
+            content: { type: 'string', maxLength: 500 },
+            imgUrl: { type: 'string', maxLength: 200 }
+        },
+        required: ['title', 'content', 'imgUrl', '_id']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.updateHospitalWellnessAPI(ctx, next)
+    }
+)
+
+router.delete(
+    '/wellness/:_id',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: "objectid" }
+        },
+        required: ['_id']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.deleteHospitalWellnessAPI(ctx, next)
+    }
+)
+
+router.post(
+    '/partybuilding',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            title: { type: 'string', maxLength: 200 },
+            content: { type: 'string', maxLength: 500 },
+            imgUrl: { type: 'string', maxLength: 200 }
+        },
+        required: ['title', 'content', 'imgUrl']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.createHospitalPartyBuildingAPI(ctx, next)
+    }
+)
+
+router.get('/partybuilding', async (ctx, next) => {
+    await hospitalCtrl.getHospitalPartyBuildingAPI(ctx, next)
+  }
+)
+
+router.put(
+    '/partybuilding/:_id',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: "objectid" },
+            title: { type: 'string', maxLength: 200 },
+            content: { type: 'string', maxLength: 500 },
+            imgUrl: { type: 'string', maxLength: 200 }
+        },
+        required: ['title', 'content', 'imgUrl', '_id']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.updateHospitalPartyBuildingAPI(ctx, next)
+    }
+)
+
+router.delete(
+    '/partybuilding/:_id',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: "objectid" }
+        },
+        required: ['_id']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.deleteHospitalPartyBuildingAPI(ctx, next)
+    }
+)
+
+router.post(
     '/upload',
     upload.single('file'),
     async (ctx, next) => {
