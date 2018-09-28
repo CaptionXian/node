@@ -29,7 +29,7 @@ app.use(json())
 app.use(logger())
 
 //设置静态资源的路径 
-app.use(require('koa-static')(__dirname + '/public/uploads/'))
+app.use(require('koa-static')(__dirname + './public/uploads/'))
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'

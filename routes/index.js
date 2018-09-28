@@ -3,7 +3,7 @@ const ajvValidator = require('../lib/middlewares/ajv')
 const wxauthCtrl = require('../lib/controllers/wxauth')
 
 router.get('/', async (ctx, next) => {
-  ctx.body = 'a'
+  ctx.body = 'version 0.1.0'
   }
 )
 
