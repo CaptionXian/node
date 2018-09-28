@@ -15,7 +15,7 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            summary: { type: 'string', maxLength: 500 }
+            summary: { type: 'string' }
         },
         required: ['summary']
     }), 
@@ -30,7 +30,7 @@ router.post(
         type: 'object',
         properties: {
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
         required: ['title', 'content', 'imgUrl']
@@ -52,7 +52,7 @@ router.put(
         properties: {
             _id: { type: 'string', format: "objectid" },
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
         required: ['title', 'content', 'imgUrl', '_id']
@@ -134,7 +134,7 @@ router.post(
         type: 'object',
         properties: {
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
         required: ['title', 'content', 'imgUrl']
@@ -156,7 +156,7 @@ router.put(
         properties: {
             _id: { type: 'string', format: "objectid" },
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
         required: ['title', 'content', 'imgUrl', '_id']
@@ -186,7 +186,7 @@ router.post(
         type: 'object',
         properties: {
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
             department: { type: 'string', format: "objectid" }
         },
@@ -209,7 +209,7 @@ router.put(
         properties: {
             _id: { type: 'string', format: "objectid" },
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
             department: { type: 'string', format: "objectid" }
         },
@@ -240,7 +240,7 @@ router.post(
         type: 'object',
         properties: {
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
         },
         required: ['title', 'content', 'imgUrl']
@@ -262,7 +262,7 @@ router.put(
         properties: {
             _id: { type: 'string', format: "objectid" },
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
         },
         required: ['title', 'content', 'imgUrl', '_id']
@@ -292,7 +292,7 @@ router.post(
         type: 'object',
         properties: {
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
         },
         required: ['title', 'content', 'imgUrl']
@@ -314,7 +314,7 @@ router.put(
         properties: {
             _id: { type: 'string', format: "objectid" },
             title: { type: 'string', maxLength: 200 },
-            content: { type: 'string', maxLength: 500 },
+            content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
         },
         required: ['title', 'content', 'imgUrl', '_id']
