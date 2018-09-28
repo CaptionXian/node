@@ -18,12 +18,7 @@ const hospital = require('./routes/hospital')
 onerror(app)
 
 app.use(
-  cors({
-    origin: '*',
-    credentials: true,
-    allowMethods: ['GET', 'POST', 'DELETE', 'PUT', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'Authorization', 'Accept']
-  })
+  cors()
 )
 
 // middlewares
@@ -32,7 +27,9 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+
+//设置静态资源的路径 
+app.use(require('koa-static')(__dirname + '/public/uploads/'))
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'

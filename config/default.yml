@@ -1,5 +1,5 @@
 ---
-PORT: 3006
+PORT: 3008
 MONGODB:
   URL: 'mongodb://127.0.0.1:27017/hospital'
   DB: hospital

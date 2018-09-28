@@ -1,6 +1,6 @@
 {
     "name": "hospital",
-    "script": "./app.js",
+    "script": "bin/www",
     "exec_mode": "fork",
     "instances": 1,
     "max_memory_restart": "1G",
