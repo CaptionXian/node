@@ -188,9 +188,11 @@ router.post(
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
-            department: { type: 'string', format: "objectid" }
+            department: { type: 'string', format: "objectid" },
+            position: { type: 'string', maxLength: 200 },
+            isExpert: { type: 'boolean' }
         },
-        required: ['title', 'content', 'imgUrl', 'department']
+        required: ['title', 'content', 'imgUrl', 'department', 'position']
     }),
     async (ctx, next) => {
         await hospitalCtrl.createHospitalDoctorAPI(ctx, next)
@@ -202,6 +204,20 @@ router.get('/doctor', async (ctx, next) => {
   }
 )
 
+router.get(
+    '/department/:_id/doctor',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: "objectid" }
+        },
+        required: ['_id']
+    }), 
+    async (ctx, next) => {
+        await hospitalCtrl.getHospitalDoctorByDepartmentAPI(ctx, next)
+    }
+)
+
 router.put(
     '/doctor/:_id',
     ajvValidator({
@@ -211,9 +227,11 @@ router.put(
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
-            department: { type: 'string', format: "objectid" }
+            department: { type: 'string', format: "objectid" },
+            position: { type: 'string', maxLength: 200 },
+            isExpert: { type: 'boolean' }
         },
-        required: ['title', 'content', 'imgUrl', '_id', 'department']
+        required: ['title', 'content', 'imgUrl', '_id', 'department', 'position']
     }),
     async (ctx, next) => {
         await hospitalCtrl.updateHospitalDoctorAPI(ctx, next)
