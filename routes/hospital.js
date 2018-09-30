@@ -24,6 +24,25 @@ router.put(
     }
 )
 
+router.get('/schedule',async (ctx, next) => {
+    await hospitalCtrl.getHospitalScheduleAPI(ctx, next)
+})
+
+router.put(
+    '/schedule',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            schedule: { type: 'string', maxLength: 200 }
+        },
+        required: ['schedule']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.createHospitalScheduleAPI(ctx, next)
+    }
+)
+
+
 router.post(
     '/news',
     ajvValidator({

@@ -3,6 +3,7 @@
 *.out
 *.pid
 *.gz
+*.jpg
 .DS_Store
 node_modules
 dummy
