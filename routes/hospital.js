@@ -218,9 +218,18 @@ router.post(
     }
 )
 
-router.get('/doctor', async (ctx, next) => {
-    await hospitalCtrl.getHospitalDoctorAPI(ctx, next)
-  }
+router.get(
+    '/doctor',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            isExpert: { type: 'boolean' },
+            department: { type: 'string', format: "objectid" }
+        }
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.getHospitalDoctorAPI(ctx, next)
+    }
 )
 
 router.get(

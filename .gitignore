@@ -3,10 +3,10 @@
 *.out
 *.pid
 *.gz
-*.jpg
 .DS_Store
 node_modules
 dummy
+public/*
 version.json
 package.json.swp
 package-lock.json
