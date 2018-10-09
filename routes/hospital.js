@@ -69,7 +69,7 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" },
+            _id: { type: 'string', format: 'objectid' },
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
@@ -86,7 +86,7 @@ router.delete(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }),
@@ -121,7 +121,7 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" },
+            _id: { type: 'string', format: 'objectid' },
             title: { type: 'string', maxLength: 200 },
             linkUrl: { type: 'string', maxLength: 200 },
             imgUrl: { type: 'string', maxLength: 200 },
@@ -138,7 +138,7 @@ router.delete(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }),
@@ -173,7 +173,7 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" },
+            _id: { type: 'string', format: 'objectid' },
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
@@ -185,12 +185,35 @@ router.put(
     }
 )
 
+router.put(
+    '/department',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            departments: { 
+                type: 'array',
+                items: {
+                    type: 'object',
+                    properties: {
+                        _id: { type: 'string', format: 'objectid' },
+                        sort: { type: 'number' }
+                    }
+                }
+            }
+        },
+        required: ['departments']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.updateHospitalDepartmentSortAPI(ctx, next)
+    }
+)
+
 router.delete(
     '/department/:_id',
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }),
@@ -207,7 +230,7 @@ router.post(
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
-            department: { type: 'string', format: "objectid" },
+            department: { type: 'string', format: 'objectid' },
             position: { type: 'string', maxLength: 200 },
             isExpert: { type: 'boolean' }
         },
@@ -224,7 +247,7 @@ router.get(
         type: 'object',
         properties: {
             isExpert: { type: 'boolean' },
-            department: { type: 'string', format: "objectid" }
+            department: { type: 'string', format: 'objectid' }
         }
     }),
     async (ctx, next) => {
@@ -237,7 +260,7 @@ router.get(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }), 
@@ -251,11 +274,11 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" },
+            _id: { type: 'string', format: 'objectid' },
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
-            department: { type: 'string', format: "objectid" },
+            department: { type: 'string', format: 'objectid' },
             position: { type: 'string', maxLength: 200 },
             isExpert: { type: 'boolean' }
         },
@@ -271,7 +294,7 @@ router.delete(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }),
@@ -306,7 +329,7 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" },
+            _id: { type: 'string', format: 'objectid' },
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
@@ -323,7 +346,7 @@ router.delete(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }),
@@ -358,7 +381,7 @@ router.put(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" },
+            _id: { type: 'string', format: 'objectid' },
             title: { type: 'string', maxLength: 200 },
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
@@ -375,7 +398,7 @@ router.delete(
     ajvValidator({
         type: 'object',
         properties: {
-            _id: { type: 'string', format: "objectid" }
+            _id: { type: 'string', format: 'objectid' }
         },
         required: ['_id']
     }),
