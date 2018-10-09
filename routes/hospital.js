@@ -289,6 +289,31 @@ router.put(
     }
 )
 
+router.put(
+    '/doctor',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            doctors: { 
+                type: 'array',
+                items: {
+                    type: 'object',
+                    properties: {
+                        _id: { type: 'string', format: 'objectid' },
+                        expertSort: { type: 'number' },
+                        departmentSort: { type: 'number' }
+                    }
+                }
+            },
+            type: { type: 'string', enum: ['expert', 'department'] },
+        },
+        required: ['doctors', 'type']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.updateHospitalDoctorSortAPI(ctx, next)
+    }
+)
+
 router.delete(
     '/doctor/:_id',
     ajvValidator({
