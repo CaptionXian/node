@@ -5,6 +5,66 @@ const hospitalCtrl = require('../lib/controllers/hospital')
 
 router.prefix('/hospital')
 
+router.post(
+    '/login',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            userName: { type: 'string', maxLength: 200 },
+            passWord: { type: 'string', minLength: 5, maxLength: 16 }
+        },
+        required: ['userName', 'passWord']
+    }), 
+    async (ctx, next) => {
+        await hospitalCtrl.loginHospitalAPI(ctx, next)
+    }
+)
+
+router.post(
+    '/user',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            userName: { type: 'string', maxLength: 200 },
+            passWord: { type: 'string', minLength: 5, maxLength: 16 }
+        },
+        required: ['userName', 'passWord']
+    }), 
+    async (ctx, next) => {
+        await hospitalCtrl.createHospitalUserAPI(ctx, next)
+    }
+)
+
+router.put(
+    '/user/:_id',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: 'objectid' },
+            userName: { type: 'string', maxLength: 200 },
+            passWord: { type: 'string', minLength: 5, maxLength: 16 }
+        },
+        required: ['_id']
+    }), 
+    async (ctx, next) => {
+        await hospitalCtrl.updateHospitalUserAPI(ctx, next)
+    }
+)
+
+router.delete(
+    '/user/:_id',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            _id: { type: 'string', format: 'objectid' }
+        },
+        required: ['_id']
+    }), 
+    async (ctx, next) => {
+        await hospitalCtrl.deleteHospitalUserAPI(ctx, next)
+    }
+)
+
 router.get('/summary', async (ctx, next) => {
     await hospitalCtrl.getHospitalSummaryAPI(ctx, next)
   }
