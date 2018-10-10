@@ -49,7 +49,7 @@ app.use(async (ctx, next) => {
 app.use(koajwt({
     secret: config.AUTH.SECRET
   }).unless({
-    path: ['/hospital/login']
+    path: ['/hospital/login', '/hospital/upload']
   }))
 
 // routes
