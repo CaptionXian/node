@@ -35,6 +35,21 @@ router.post(
     }
 )
 
+router.get(
+    '/user',
+    // ajvValidator({
+    //     type: 'object',
+    //     properties: {
+    //         userName: { type: 'string', maxLength: 200 },
+    //         passWord: { type: 'string', minLength: 5, maxLength: 16 }
+    //     },
+    //     required: ['userName', 'passWord']
+    // }), 
+    async (ctx, next) => {
+        await hospitalCtrl.getHospitalUserAPI(ctx, next)
+    }
+)
+
 router.put(
     '/user/:_id',
     ajvValidator({
