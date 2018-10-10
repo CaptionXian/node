@@ -46,11 +46,11 @@ app.use(async (ctx, next) => {
 })
 
 // auth
-// app.use(koajwt({
-//     secret: config.AUTH.SECRET
-//   }).unless({
-//     path: ['/hospital/login']
-//   }))
+app.use(koajwt({
+    secret: config.AUTH.SECRET
+  }).unless({
+    path: ['/hospital/login']
+  }))
 
 // routes
 app.use(index.routes(), index.allowedMethods())

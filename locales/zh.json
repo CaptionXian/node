@@ -1,0 +1,17 @@
+{
+    "userName Error" :  "用户名错误",
+    "passWord Error" :  "密码错误",
+    "_id Error" :  "ID错误",
+    "summary Error" :  "简介错误",
+    "schedule Error" :  "排班表错误",
+    "title Error" :  "名称错误",
+    "content Error" :  "内容错误",
+    "imgUrl Error" :  "图片错误",
+    "linkUrl Error" :  "链接错误",
+    "department Error" : "科室错误",
+    "departments Error" :  "缺少科室",
+    "position Error" :  "职称错误",
+    "isExpert Error" :  "是否专家错误",
+    "doctors Error" :  "缺少医生",
+    "type Error" :  "类型错误"
+}
