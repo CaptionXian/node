@@ -13,5 +13,6 @@
     "position Error" :  "职称错误",
     "isExpert Error" :  "是否专家错误",
     "doctors Error" :  "缺少医生",
-    "type Error" :  "类型错误"
+    "type Error" :  "类型错误",
+    "authority Error" : "缺少权限"
 }
