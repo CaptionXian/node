@@ -20,6 +20,12 @@ router.post(
     }
 )
 
+router.post('/logout',
+    async (ctx, next) => {
+        await hospitalCtrl.logoutHospitalAPI(ctx, next)
+    }
+)
+
 router.post(
     '/user',
     ajvValidator({
