@@ -6,12 +6,11 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa2-cors')
-const koajwt = require('koa-jwt')
-const config = require('config')
 
 // mongo
 require('./lib/services/mongo')
 
+const { authMiddleware } = require('./lib/middlewares/auth')
 const index = require('./routes/index')
 const users = require('./routes/users')
 const hospital = require('./routes/hospital')
@@ -46,11 +45,9 @@ app.use(async (ctx, next) => {
 })
 
 // auth
-app.use(koajwt({
-    secret: config.AUTH.SECRET
-  }).unless({
-    path: ['/hospital/login']
-  }))
+app.use(authMiddleware.unless({
+  path: ['/hospital/login']
+}))
 
 // routes
 app.use(index.routes(), index.allowedMethods())

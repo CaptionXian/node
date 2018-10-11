@@ -6,7 +6,7 @@ MONGODB:
 
 AUTH:
   SECRET: 'hospital'
-  EXPIRES: '1h'
+  EXPIRES: '24h'
 
 WECHAT:
   APP_ID: 'wx8b48a6a3cccb1a2d'
