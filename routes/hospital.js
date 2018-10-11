@@ -26,9 +26,15 @@ router.post(
         type: 'object',
         properties: {
             userName: { type: 'string', maxLength: 200 },
-            passWord: { type: 'string', minLength: 5, maxLength: 16 }
+            passWord: { type: 'string', minLength: 5, maxLength: 16 },
+            authority: { 
+                type: 'array',
+                items: {
+                    type: 'number'
+                } 
+            }
         },
-        required: ['userName', 'passWord']
+        required: ['userName', 'passWord', 'authority']
     }), 
     async (ctx, next) => {
         await hospitalCtrl.createHospitalUserAPI(ctx, next)
@@ -57,7 +63,13 @@ router.put(
         properties: {
             _id: { type: 'string', format: 'objectid' },
             userName: { type: 'string', maxLength: 200 },
-            passWord: { type: 'string', minLength: 5, maxLength: 16 }
+            passWord: { type: 'string', minLength: 5, maxLength: 16 },
+            authority: { 
+                type: 'array',
+                items: {
+                    type: 'number'
+                } 
+            }
         },
         required: ['_id']
     }), 
