@@ -20,7 +20,7 @@ router.post(
     }
 )
 
-router.post('/logout',
+router.get('/logout',
     async (ctx, next) => {
         await hospitalCtrl.logoutHospitalAPI(ctx, next)
     }
