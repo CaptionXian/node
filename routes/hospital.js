@@ -486,6 +486,11 @@ router.get('/partybuilding', async (ctx, next) => {
   }
 )
 
+router.get('/exportExcel', async (ctx, next) => {
+    await hospitalCtrl.exportExcel(ctx, next)
+  }
+)
+
 router.put(
     '/partybuilding/:_id',
     ajvValidator({
