@@ -46,7 +46,7 @@ app.use(async (ctx, next) => {
 
 // auth
 app.use(authMiddleware.unless({
-  path: ['/hospital/login']
+  path: ['/hospital/login', '/hospital/exportExcel']
 }))
 
 // routes
