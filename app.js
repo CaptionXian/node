@@ -48,7 +48,7 @@ app.use(async (ctx, next) => {
 app.use(authMiddleware.unless({
   path: [
     '/hospital/login', '/hospital/exportExcel', '/hospital/summary', '/hospital/schedule', '/hospital/news', '/hospital/banner', '/hospital/department',
-    '/hospital/doctor', '/hospital/department/:_id/doctor', '/hospital/wellness', '/hospital/partybuilding', '/user/*',
+    '/hospital/doctor', '/hospital/department/:_id/doctor', '/hospital/wellness', '/hospital/partybuilding', '/hospital/upload', '/user/*',
   ]
 }))
 
