@@ -4,6 +4,73 @@ const userCtrl = require('../lib/controllers/user')
 
 router.prefix('/users')
 
+router.get('/code', async (ctx, next) => {
+    await userCtrl.getAccessTokenAPI(ctx, next)
+  }
+)
+
+router.get('/summary', async (ctx, next) => {
+     await hospitalCtrl.getHospitalSummaryAPI(ctx, next)
+  }
+)
+
+router.get('/schedule',async (ctx, next) => {
+  await hospitalCtrl.getHospitalScheduleAPI(ctx, next)
+})
+
+router.get('/news', async (ctx, next) => {
+    await hospitalCtrl.getHospitalNewsAPI(ctx, next)
+  }
+)
+
+router.get('/banner', async (ctx, next) => {
+    await hospitalCtrl.getHospitalBannerAPI(ctx, next)
+  }
+)
+
+router.get('/department', async (ctx, next) => {
+    await hospitalCtrl.getHospitalDepartmentAPI(ctx, next)
+  }
+)
+
+router.get(
+  '/doctor',
+  ajvValidator({
+      type: 'object',
+      properties: {
+          isExpert: { type: 'boolean' },
+          department: { type: 'string', format: 'objectid' }
+      }
+  }),
+  async (ctx, next) => {
+      await hospitalCtrl.getHospitalDoctorAPI(ctx, next)
+  }
+)
+
+router.get(
+  '/department/:_id/doctor',
+  ajvValidator({
+      type: 'object',
+      properties: {
+          _id: { type: 'string', format: 'objectid' }
+      },
+      required: ['_id']
+  }), 
+  async (ctx, next) => {
+      await hospitalCtrl.getHospitalDoctorByDepartmentAPI(ctx, next)
+  }
+)
+
+router.get('/wellness', async (ctx, next) => {
+    await hospitalCtrl.getHospitalWellnessAPI(ctx, next)
+  }
+)
+
+router.get('/partybuilding', async (ctx, next) => {
+    await hospitalCtrl.getHospitalPartyBuildingAPI(ctx, next)
+  }
+)
+
 router.post(
   '/questionnaire',
   ajvValidator({
