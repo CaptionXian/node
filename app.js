@@ -44,16 +44,18 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+app.use(users.routes(), users.allowedMethods())
+
 // auth
 app.use(authMiddleware.unless({
   path: [
-    '/hospital/login', '/hospital/exportExcel', '/hospital/upload', '/users/*',
+    '/hospital/login', '/hospital/exportExcel', '/hospital/upload',
   ]
 }))
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+
 app.use(hospital.routes(), hospital.allowedMethods())
 
 // error-handling

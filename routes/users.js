@@ -1,6 +1,7 @@
 const router = require('koa-router')()
 const ajvValidator = require('../lib/middlewares/ajv')
 const userCtrl = require('../lib/controllers/user')
+const hospitalCtrl = require('../lib/controllers/hospital')
 
 router.prefix('/users')
 
