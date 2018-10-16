@@ -28,7 +28,7 @@ app.use(
 app.keys = ['hospital'];   /*cookie的签名*/
 const CONFIG = {
     key: 'koa:sess',
-    maxAge: 7200,
+    maxAge: 86400000,
     overwrite: true, 
     httpOnly: true, 
     signed: true,
