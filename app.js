@@ -6,7 +6,6 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa2-cors')
-const session = require('koa-session')
 
 // mongo
 require('./lib/services/mongo')
@@ -23,19 +22,6 @@ onerror(app)
 app.use(
   cors()
 )
-
-// session
-app.keys = ['hospital'];   /*cookie的签名*/
-const CONFIG = {
-    key: 'koa:sess',
-    maxAge: 86400000,
-    overwrite: true, 
-    httpOnly: true, 
-    signed: true,
-    rolling: true,
-    renew: false,
-};
-app.use(session(CONFIG, app))
 
 // middlewares
 app.use(bodyparser({
