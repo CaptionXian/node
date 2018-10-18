@@ -486,9 +486,51 @@ router.get('/partybuilding', async (ctx, next) => {
   }
 )
 
-router.get('/exportExcel', async (ctx, next) => {
-    await hospitalCtrl.exportExcel(ctx, next)
-  }
+router.get(
+    '/questionnaire', 
+    ajvValidator({
+        type: 'object',
+        properties: {
+          type: { type: 'string', enum: [
+            'clinic',
+            'toll',
+            'pharmacy',
+            'laboratory',
+            'radiology',
+            'ultrasound',
+            'endoscopy'
+          ]},
+          startDate: { type: 'string', format: 'date-time' },
+          endDate: { type: 'string', format: 'date-time' }
+        }
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.getQuestionnairesAPI(ctx, next)
+    }
+)
+
+router.get(
+    '/exportExcel',
+    ajvValidator({
+        type: 'object',
+        properties: {
+          type: { type: 'string', enum: [
+            'clinic',
+            'toll',
+            'pharmacy',
+            'laboratory',
+            'radiology',
+            'ultrasound',
+            'endoscopy'
+          ]},
+          startDate: { type: 'string', format: 'date-time' },
+          endDate: { type: 'string', format: 'date-time' }
+        },
+        require: ['type']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.exportExcel(ctx, next)
+    }
 )
 
 router.put(
