@@ -500,6 +500,7 @@ router.get(
             'ultrasound',
             'endoscopy'
           ]},
+          name: { type: 'string' },
           startDate: { type: 'string', format: 'date-time' },
           endDate: { type: 'string', format: 'date-time' }
         }
@@ -523,6 +524,7 @@ router.get(
             'ultrasound',
             'endoscopy'
           ]},
+          name: { type: 'string' },
           startDate: { type: 'string', format: 'date-time' },
           endDate: { type: 'string', format: 'date-time' }
         },
