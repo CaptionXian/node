@@ -137,7 +137,7 @@ router.post(
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
-        required: ['title', 'content', 'imgUrl']
+        required: ['title', 'content']
     }),
     async (ctx, next) => {
         await hospitalCtrl.createHospitalNewsAPI(ctx, next)
@@ -159,7 +159,7 @@ router.put(
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
-        required: ['title', 'content', 'imgUrl', '_id']
+        required: ['title', 'content', '_id']
     }),
     async (ctx, next) => {
         await hospitalCtrl.updateHospitalNewsAPI(ctx, next)
@@ -241,7 +241,7 @@ router.post(
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
-        required: ['title', 'content', 'imgUrl']
+        required: ['title', 'content']
     }),
     async (ctx, next) => {
         await hospitalCtrl.createHospitalDepartmentAPI(ctx, next)
@@ -263,7 +263,7 @@ router.put(
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 },
         },
-        required: ['title', 'content', 'imgUrl', '_id']
+        required: ['title', 'content', '_id']
     }),
     async (ctx, next) => {
         await hospitalCtrl.updateHospitalDepartmentAPI(ctx, next)
@@ -422,7 +422,7 @@ router.post(
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
         },
-        required: ['title', 'content', 'imgUrl']
+        required: ['title', 'content']
     }),
     async (ctx, next) => {
         await hospitalCtrl.createHospitalWellnessAPI(ctx, next)
@@ -444,7 +444,7 @@ router.put(
             content: { type: 'string' },
             imgUrl: { type: 'string', maxLength: 200 }
         },
-        required: ['title', 'content', 'imgUrl', '_id']
+        required: ['title', 'content', '_id']
     }),
     async (ctx, next) => {
         await hospitalCtrl.updateHospitalWellnessAPI(ctx, next)
@@ -498,7 +498,8 @@ router.get(
             'laboratory',
             'radiology',
             'ultrasound',
-            'endoscopy'
+            'endoscopy',
+            'in-patient'
           ]},
           name: { type: 'string' },
           startDate: { type: 'string', format: 'date-time' },
@@ -522,7 +523,8 @@ router.get(
             'laboratory',
             'radiology',
             'ultrasound',
-            'endoscopy'
+            'endoscopy',
+            'in-patient'
           ]},
           name: { type: 'string' },
           startDate: { type: 'string', format: 'date-time' },
