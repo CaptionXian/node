@@ -123,7 +123,7 @@ router.get(
 )
 
 router.post(
-  'medicalRecordCopy',
+  '/medicalRecordCopy',
   ajvValidator({
     type: 'object',
     properties: {
