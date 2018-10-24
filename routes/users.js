@@ -122,4 +122,21 @@ router.get(
   }
 )
 
+router.post(
+  'medicalRecordCopy',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      userId: { type: 'string', format: "objectid" },
+      name: { type: 'string' },
+      tel: { type: 'string' },
+      address: { type: 'string' }
+    },
+    require: ['name', 'tel', 'address']
+  }),
+  async (ctx, next) => {
+    await userCtrl.submitMedicalRecordCopyAPI(ctx, next)
+  }
+)
+
 module.exports = router

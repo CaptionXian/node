@@ -9,5 +9,5 @@ dummy
 public/*
 version.json
 package.json.swp
-/package-lock.json
+package-lock.json
 debug

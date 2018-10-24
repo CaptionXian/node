@@ -512,6 +512,22 @@ router.get(
 )
 
 router.get(
+    '/medicalRecordCopy', 
+    ajvValidator({
+        type: 'object',
+        properties: {
+          name: { type: 'string' },
+          startDate: { type: 'string', format: 'date-time' },
+          endDate: { type: 'string', format: 'date-time' },
+          isSend: { type: 'string' }
+        }
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.getMedicalRecordCopyAPI(ctx, next)
+    }
+)
+
+router.get(
     '/exportExcel',
     ajvValidator({
         type: 'object',
