@@ -19,6 +19,10 @@ router.get('/schedule',async (ctx, next) => {
   await hospitalCtrl.getHospitalScheduleAPI(ctx, next)
 })
 
+router.get('/attendance',async (ctx, next) => {
+  await hospitalCtrl.getHospitalAttendanceAPI(ctx, next)
+})
+
 router.get('/news', async (ctx, next) => {
     await hospitalCtrl.getHospitalNewsAPI(ctx, next)
   }

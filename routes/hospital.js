@@ -127,6 +127,23 @@ router.put(
     }
 )
 
+router.get('/attendance',async (ctx, next) => {
+    await hospitalCtrl.getHospitalAttendanceAPI(ctx, next)
+})
+
+router.put(
+    '/attendance',
+    ajvValidator({
+        type: 'object',
+        properties: {
+            attendance: { type: 'string', maxLength: 200 }
+        },
+        required: ['attendance']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.createHospitalAttendanceAPI(ctx, next)
+    }
+)
 
 router.post(
     '/news',
