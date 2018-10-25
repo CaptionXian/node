@@ -98,7 +98,7 @@ router.post(
         advantage: { type: 'string' },
         defect: { type: 'string' }
     },
-    required: [ 'name', 'date', 'tel', 'type', 'answer', 'advantage', 'defect' ]
+    required: [ 'name', 'date', 'tel', 'type', 'answer' ]
   }), 
   async (ctx, next) => {
       await userCtrl.submitQuestionnaireAPI(ctx, next)
