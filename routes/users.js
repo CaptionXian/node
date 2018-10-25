@@ -91,7 +91,8 @@ router.post(
           'laboratory',
           'radiology',
           'ultrasound',
-          'endoscopy'
+          'endoscopy',
+          'in-patient'
         ]},
         answer: { type: 'array' },
         advantage: { type: 'string' },
@@ -117,7 +118,8 @@ router.get(
         'laboratory',
         'radiology',
         'ultrasound',
-        'endoscopy'
+        'endoscopy',
+        'in-patient'
       ]},
     }
   }),
