@@ -136,7 +136,8 @@ router.post(
       userId: { type: 'string', format: "objectid" },
       name: { type: 'string' },
       tel: { type: 'string' },
-      address: { type: 'string' }
+      address: { type: 'string' },
+      note: { type: 'string' }
     },
     require: ['name', 'tel', 'address']
   }),
