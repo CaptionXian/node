@@ -544,6 +544,20 @@ router.get(
     }
 )
 
+router.put(
+    '/sendMedicalRecordCopy/:_id', 
+    ajvValidator({
+        type: 'object',
+        properties: {
+          _id: { type: 'string' },
+        },
+        require: ['_id']
+    }),
+    async (ctx, next) => {
+        await hospitalCtrl.sendMedicalRecordCopyAPI(ctx, next)
+    }
+)
+
 router.get(
     '/exportExcel',
     ajvValidator({
