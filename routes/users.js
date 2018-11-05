@@ -153,7 +153,6 @@ router.post(
   ajvValidator({
     type: 'object',
     properties: {
-      userId: { type: 'string', format: 'objectid' },
       date: { type: 'string' },
       Time: { type: 'string' },
       BussAcctType: { type: 'number' },
@@ -161,10 +160,26 @@ router.post(
       Tel: { type: 'string' },
       Name: { type: 'string' }
     },
-    require: ['userId', 'BussAcctType', 'AccountNo']
+    require: ['BussAcctType', 'AccountNo']
   }),
   async (ctx, next) => {
     await userCtrl.getPatientInformation(ctx, next)
+  }
+)
+
+router.post(
+  '/userTieCard',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      userId: { type: 'string', format: 'objectid' },
+      healthNo: { type: 'string' },
+      hisID: { type: 'string' }
+    },
+    require: ['userId', 'healthNo', 'hisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.userTieCardAPI(ctx, next)
   }
 )
 
