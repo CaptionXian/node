@@ -14,3 +14,7 @@ WECHAT:
   # APP_SECRET: '7d4fbf54118a9b64c2ca319735a7d6db'
   APP_SECRET: '87f0ba694625725332b55afa26d49c9b'
   SCOPE: 'snsapi_userinfo'
+
+HIS:
+  RECHARGE_URL: 'http://183.250.249.3:10080/ycyy/MobilePayment.asmx'
+  RESERVATION_URL: 'http://183.250.249.3:10080/qyy/w_PAIDUI/WuLiService/NewInterFace.asmx'

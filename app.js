@@ -25,12 +25,12 @@ app.use(
 
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text', 'xml']
+  enableTypes: ['json', 'form', 'text', 'xml']
 }))
 app.use(json())
 app.use(logger())
 
-//设置静态资源的路径 
+// 设置静态资源的路径
 app.use(require('koa-static')(__dirname + '/public/uploads'))
 
 app.use(views(__dirname + '/views', {
@@ -50,7 +50,7 @@ app.use(users.routes(), users.allowedMethods())
 // auth
 app.use(authMiddleware.unless({
   path: [
-    '/hospital/login', '/hospital/upload',
+    '/hospital/login', '/hospital/upload'
   ]
 }))
 
@@ -62,6 +62,6 @@ app.use(hospital.routes(), hospital.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
-});
+})
 
 module.exports = app
