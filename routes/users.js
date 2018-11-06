@@ -1,7 +1,7 @@
-const router = require('koa-router')()
-const ajvValidator = require('../lib/middlewares/ajv')
-const userCtrl = require('../lib/controllers/user')
-const hospitalCtrl = require('../lib/controllers/hospital')
+const router = required('koa-router')()
+const ajvValidator = required('../lib/middlewares/ajv')
+const userCtrl = required('../lib/controllers/user')
+const hospitalCtrl = required('../lib/controllers/hospital')
 
 router.prefix('/users')
 
@@ -141,7 +141,7 @@ router.post(
       address: { type: 'string' },
       note: { type: 'string' }
     },
-    require: ['name', 'tel', 'address']
+    required: ['name', 'tel', 'address']
   }),
   async (ctx, next) => {
     await userCtrl.submitMedicalRecordCopyAPI(ctx, next)
@@ -160,7 +160,7 @@ router.post(
       Tel: { type: 'string' },
       Name: { type: 'string' }
     },
-    require: ['BussAcctType', 'AccountNo']
+    required: ['BussAcctType', 'AccountNo']
   }),
   async (ctx, next) => {
     await userCtrl.getPatientInformation(ctx, next)
@@ -176,10 +176,33 @@ router.post(
       healthNo: { type: 'string' },
       hisID: { type: 'string' }
     },
-    require: ['userId', 'healthNo', 'hisID']
+    required: ['userId', 'healthNo', 'hisID']
   }),
   async (ctx, next) => {
     await userCtrl.userTieCardAPI(ctx, next)
+  }
+)
+
+//  预交金充值
+router.post(
+  '/rechargeHisAccount',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      userId: { type: 'string', format: 'objectid' },
+      hisID: { type: 'string' },
+      total_fee: { type: 'number' },
+      sign: { type: 'string' }
+    },
+    required: ['userId', 'total_fee', 'hisID', 'sign']
+  }),
+  async (ctx, next) => {
+    await userCtrl.rechargeHisAccountAPI(ctx, next)
+  }
+)
+
+router.post('/payNotify', async (ctx, next) => {
+    await userCtrl.payNotifyAPI(ctx, next)
   }
 )
 

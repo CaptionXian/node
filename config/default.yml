@@ -9,11 +9,14 @@ AUTH:
   EXPIRES: '24h'
 
 WECHAT:
-  #APP_ID: 'wx8b48a6a3cccb1a2d'
   APP_ID: 'wx3dd0ab7b7c6c40fe'
-  # APP_SECRET: '7d4fbf54118a9b64c2ca319735a7d6db'
   APP_SECRET: '87f0ba694625725332b55afa26d49c9b'
+  MCH_ID: ''
   SCOPE: 'snsapi_userinfo'
+  NOTIFY_URL: ''
+  PREPAY_URL: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
+  ORDERQUERY_URL: 'https://api.mch.weixin.qq.com/pay/orderquery'
+  KEY: ''
 
 HIS:
   RECHARGE_URL: 'http://183.250.249.3:10080/ycyy/MobilePayment.asmx'
