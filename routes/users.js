@@ -177,7 +177,7 @@ router.post(
       hisID: { type: 'string' },
       type: { type: 'boolean' }
     },
-    required: ['userId', 'healthNo', 'hisID']
+    required: ['userId', 'healthNo', 'hisID', 'type']
   }),
   async (ctx, next) => {
     await userCtrl.userTieCardAPI(ctx, next)
