@@ -174,7 +174,8 @@ router.post(
     properties: {
       userId: { type: 'string', format: 'objectid' },
       healthNo: { type: 'string' },
-      hisID: { type: 'string' }
+      hisID: { type: 'string' },
+      type: { type: 'boolean' }
     },
     required: ['userId', 'healthNo', 'hisID']
   }),
