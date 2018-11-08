@@ -207,4 +207,121 @@ router.post('/payNotify', async (ctx, next) => {
   }
 )
 
+router.get(
+  '/getDepts',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      SuperDeptId: { type: 'number' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['SuperDeptId']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getDepartmentsAPI(ctx, next)
+  }
+)
+
+router.get(
+  '/getDoctors',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      DeptId: { type: 'string' },
+      DoctorName: { type: 'string' },
+      QueryDate: { type: 'string' },
+      QueryEndDate: { type: 'string' },
+      QueryTime: { type: 'number', enum: [ 0, 1, 2 ] },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['DeptId', 'QueryDate', 'QueryEndDate']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getDoctorsAPI(ctx, next)
+  }
+)
+
+router.get(
+  '/getDoctorWorkDate',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      DeptId: { type: 'string' },
+      DoctorId: { type: 'string' },
+      QueryDate: { type: 'string' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['DeptId', 'QueryDate']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getDoctorWorkDateAPI(ctx, next)
+  }
+)
+
+router.get(
+  '/getOrderSource',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      DeptId: { type: 'string' },
+      DoctorId: { type: 'string' },
+      QueryDate: { type: 'string' },
+      QueryTime: { type: 'string', enum: ['AM', 'PM'] },
+      IsAllYY: { type: 'number', enum: [0, 1] },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['DeptId', 'QueryDate', 'DoctorId']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getOrderSourceAPI(ctx, next)
+  }
+)
+
+router.get(
+  '/lockOrder',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      DeptId: { type: 'string' },
+      DoctorId: { type: 'string' },
+      OrderDate: { type: 'string' },
+      OrderTime: { type: 'string', enum: ['AM', 'PM'] },
+      DevSeqNo: { type: 'number' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['DeptId', 'DevSeqNo', 'DoctorId']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getOrderSourceAPI(ctx, next)
+  }
+)
+
+router.post(
+  '/RegOrder',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      DeptId: { type: 'string' },
+      DoctorId: { type: 'string' },
+      OrderDate: { type: 'string' },
+      OrderTime: { type: 'string', enum: ['AM', 'PM'] },
+      OrderID: { type: 'string' },
+      Tel: { type: 'string' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['HisID', 'DeptId', 'OrderID', 'DoctorId']
+  }),
+  async (ctx, next) => {
+    await userCtrl.regOrderAPI(ctx, next)
+  }
+)
+
 module.exports = router

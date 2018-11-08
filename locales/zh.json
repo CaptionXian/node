@@ -15,5 +15,8 @@
     "doctors Error" :  "缺少医生",
     "type Error" :  "类型错误",
     "authority Error" : "缺少权限",
-    "userId Error" : "用户信息丢失"
+    "userId Error" : "用户信息丢失",
+    "SuperDeptId Error" : "缺失科室ID",
+    "DeptId Error" : "缺失科室ID",
+    "QueryDate Error" : "缺失查询日期"
 }
