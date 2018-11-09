@@ -236,30 +236,30 @@ router.get(
       date: { type: 'string' },
       Time: { type: 'string' },
     },
-    required: ['DeptId', 'QueryDate', 'QueryEndDate']
+    required: ['DeptId']
   }),
   async (ctx, next) => {
     await userCtrl.getDoctorsAPI(ctx, next)
   }
 )
 
-router.get(
-  '/getDoctorWorkDate',
-  ajvValidator({
-    type: 'object',
-    properties: {
-      DeptId: { type: 'string' },
-      DoctorId: { type: 'string' },
-      QueryDate: { type: 'string' },
-      date: { type: 'string' },
-      Time: { type: 'string' },
-    },
-    required: ['DeptId', 'QueryDate']
-  }),
-  async (ctx, next) => {
-    await userCtrl.getDoctorWorkDateAPI(ctx, next)
-  }
-)
+// router.get(
+//   '/getDoctorWorkDate',
+//   ajvValidator({
+//     type: 'object',
+//     properties: {
+//       DeptId: { type: 'string' },
+//       DoctorId: { type: 'string' },
+//       QueryDate: { type: 'string' },
+//       date: { type: 'string' },
+//       Time: { type: 'string' },
+//     },
+//     required: ['DeptId', 'QueryDate']
+//   }),
+//   async (ctx, next) => {
+//     await userCtrl.getDoctorWorkDateAPI(ctx, next)
+//   }
+// )
 
 router.get(
   '/getOrderSource',
@@ -275,27 +275,6 @@ router.get(
       Time: { type: 'string' },
     },
     required: ['DeptId', 'QueryDate', 'DoctorId']
-  }),
-  async (ctx, next) => {
-    await userCtrl.getOrderSourceAPI(ctx, next)
-  }
-)
-
-router.get(
-  '/lockOrder',
-  ajvValidator({
-    type: 'object',
-    properties: {
-      HisID: { type: 'string' },
-      DeptId: { type: 'string' },
-      DoctorId: { type: 'string' },
-      OrderDate: { type: 'string' },
-      OrderTime: { type: 'string', enum: ['AM', 'PM'] },
-      DevSeqNo: { type: 'number' },
-      date: { type: 'string' },
-      Time: { type: 'string' },
-    },
-    required: ['DeptId', 'DevSeqNo', 'DoctorId']
   }),
   async (ctx, next) => {
     await userCtrl.getOrderSourceAPI(ctx, next)
@@ -323,5 +302,9 @@ router.post(
     await userCtrl.regOrderAPI(ctx, next)
   }
 )
+
+router.all('*', async ctx => {
+  ctx.throw(404, 'notfound')
+})
 
 module.exports = router

@@ -625,4 +625,8 @@ router.post(
   }
 )
 
+router.all('*', async ctx => {
+  ctx.throw(404, 'notfound')
+})
+
 module.exports = router
