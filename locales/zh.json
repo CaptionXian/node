@@ -16,7 +16,18 @@
     "type Error" :  "类型错误",
     "authority Error" : "缺少权限",
     "userId Error" : "用户信息丢失",
-    "SuperDeptId Error" : "缺失科室ID",
-    "DeptId Error" : "缺失科室ID",
-    "QueryDate Error" : "缺失查询日期"
+    "address Error" : "地址错误",
+    "tel Error" : "联系方式错误",
+    "name Error" : "姓名错误",
+    "SuperDeptId Error" : "科室ID错误",
+    "DeptId Error" : "科室ID错误",
+    "QueryDate Error" : "查询日期错误",
+    "healthNo Error" : "卡号错误",
+    "BussAcctType Error" : "卡号类型错误",
+    "AccountNo Error" : "卡号错误",
+    "sign Error" : "签名错误",
+    "total_fee Error" : "金额错误",
+    "OrderID Error" : "号源ID错误",
+    "DoctorId Error" : "医生ID错误",
+    "HisID Error" : "HisID 错误"
 }
