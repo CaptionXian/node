@@ -192,7 +192,7 @@ router.post(
       userId: { type: 'string', format: 'objectid' },
       healthNo: { type: 'string' }
     },
-    // required: ['userId', 'healthNo']
+    required: ['userId', 'healthNo']
   }),
   async (ctx, next) => {
     await userCtrl.loginHisAccountAPI(ctx, next)
