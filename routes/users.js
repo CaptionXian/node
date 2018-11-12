@@ -282,7 +282,7 @@ router.get(
 )
 
 router.post(
-  '/RegOrder',
+  '/regOrder',
   ajvValidator({
     type: 'object',
     properties: {
@@ -300,6 +300,41 @@ router.post(
   }),
   async (ctx, next) => {
     await userCtrl.regOrderAPI(ctx, next)
+  }
+)
+
+router.post(
+  '/cancleOrder',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      OrderNumber: { type: 'string' },
+      HisSeqNo: { type: 'string' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['HisID', 'HisSeqNo']
+  }),
+  async (ctx, next) => {
+    await userCtrl.cancleOrderAPI(ctx, next)
+  }
+)
+
+router.post(
+  '/conFirmOrder',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      CardNo: { type: 'string' },
+      HisSeqNo: { type: 'string' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['CardNo', 'HisSeqNo']
+  }),
+  async (ctx, next) => {
+    await userCtrl.conFirmOrderAPI(ctx, next)
   }
 )
 
