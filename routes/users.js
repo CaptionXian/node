@@ -184,6 +184,21 @@ router.post(
   }
 )
 
+router.post(
+  '/loginHisAccount',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      userId: { type: 'string', format: 'objectid' },
+      healthNo: { type: 'string' }
+    },
+    required: ['userId', 'healthNo']
+  }),
+  async (ctx, next) => {
+    await userCtrl.loginHisAccountAPI(ctx, next)
+  }
+)
+
 //  预交金充值
 router.post(
   '/rechargeHisAccount',
