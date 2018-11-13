@@ -296,6 +296,23 @@ router.get(
   }
 )
 
+router.get(
+  '/getOrderMsg',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      ZIKESHIID: { type: 'string' },
+      date: { type: 'string' },
+      Time: { type: 'string' },
+    },
+    required: ['HisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getOrderMsgAPI(ctx, next)
+  }
+)
+
 router.post(
   '/regOrder',
   ajvValidator({
