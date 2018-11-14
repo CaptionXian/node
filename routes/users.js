@@ -153,7 +153,7 @@ router.post(
   ajvValidator({
     type: 'object',
     properties: {
-      Nation: { type: 'number' },
+      Nation: { type: 'string' },
       IDCardNo: { type: 'string' },
       Sex: { type: 'number' },
       Name: { type: 'string' }
