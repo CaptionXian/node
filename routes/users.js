@@ -149,6 +149,23 @@ router.post(
 )
 
 router.post(
+  '/registrationArchives',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      Nation: { type: 'number' },
+      IDCardNo: { type: 'string' },
+      Sex: { type: 'number' },
+      Name: { type: 'string' }
+    },
+    required: ['IDCardNo', 'Name', 'Sex', 'Nation']
+  }),
+  async (ctx, next) => {
+    await userCtrl.registrationArchivesAPI(ctx, next)
+  }
+)
+
+router.post(
   '/patientInformation',
   ajvValidator({
     type: 'object',
@@ -163,7 +180,7 @@ router.post(
     required: ['BussAcctType', 'AccountNo']
   }),
   async (ctx, next) => {
-    await userCtrl.getPatientInformation(ctx, next)
+    await userCtrl.getPatientInformationAPI(ctx, next)
   }
 )
 
