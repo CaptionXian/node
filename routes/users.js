@@ -387,6 +387,26 @@ router.post(
   }
 )
 
+router.post(
+  '/getReportProgresss',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HealthNo : { type: 'string' },
+      IDcardNo : { type: 'string' },
+      QueryType: { type: 'number' },
+      QueryMode: { type: 'number' },
+      QueryBeginDate: { type: 'string' },
+      QueryEndDate: { type: 'string' },
+      ReportID: { type: 'string' },
+    },
+    required: ['HealthNo', 'QueryType']
+  }),
+  async (ctx, next) => {
+    await userCtrl.getReportProgresssAPI(ctx, next)
+  }
+)
+
 router.all('*', async ctx => {
   ctx.throw(404, 'notfound')
 })
