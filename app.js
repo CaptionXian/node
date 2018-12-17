@@ -50,7 +50,7 @@ app.use(users.routes(), users.allowedMethods())
 // auth
 app.use(authMiddleware.unless({
   path: [
-    '/hospital/login', '/hospital/upload'
+    '/', '/hospital/login', '/hospital/upload'
   ]
 }))
 

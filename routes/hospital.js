@@ -488,10 +488,9 @@ router.post(
     type: 'object',
     properties: {
       title: { type: 'string', maxLength: 200 },
-      content: { type: 'string' },
-      imgUrl: { type: 'string', maxLength: 200 }
+      content: { type: 'string' }
     },
-    required: ['title', 'content', 'imgUrl']
+    required: ['title', 'content']
   }),
   async (ctx, next) => {
     await hospitalCtrl.createHospitalPartyBuildingAPI(ctx, next)
