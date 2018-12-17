@@ -592,10 +592,9 @@ router.put(
     properties: {
       _id: { type: 'string', format: 'objectid' },
       title: { type: 'string', maxLength: 200 },
-      content: { type: 'string' },
-      imgUrl: { type: 'string', maxLength: 200 }
+      content: { type: 'string' }
     },
-    required: ['title', 'content', 'imgUrl', '_id']
+    required: ['title', 'content', '_id']
   }),
   async (ctx, next) => {
     await hospitalCtrl.updateHospitalPartyBuildingAPI(ctx, next)
