@@ -226,9 +226,9 @@ router.post(
       HisID: { type: 'string' },
       total_fee: { type: 'number' },
       openid: { type: 'string' },
-      sign: { type: 'string' }
+      // sign: { type: 'string' }
     },
-    required: ['userId', 'total_fee', 'HisID', 'openid', 'sign']
+    required: ['userId', 'total_fee', 'HisID', 'openid',]
   }),
   async (ctx, next) => {
     await userCtrl.rechargeHisAccountAPI(ctx, next)
@@ -256,6 +256,21 @@ router.get(
 
 router.post('/payNotify', async (ctx, next) => {
     await userCtrl.payNotifyAPI(ctx, next)
+  }
+)
+
+//  余额查询
+router.get(
+  '/inquireBalance',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' }
+    },
+    required: ['HisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.inquireBalanceAPI(ctx, next)
   }
 )
 
