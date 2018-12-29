@@ -29,5 +29,7 @@
     "total_fee Error" : "金额错误",
     "OrderID Error" : "号源ID错误",
     "DoctorId Error" : "医生ID错误",
-    "HisID Error" : "HisID 错误"
+    "HisID Error" : "HisID 错误",
+    "PageNo Error" : "PageNo 错误",
+    "PageSize Error" : "PageSize 错误"
 }

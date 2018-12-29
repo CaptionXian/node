@@ -234,6 +234,25 @@ router.post(
   }
 )
 
+//  预交金充值记录查询
+router.get(
+  '/rechargeHisAccountHistory',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      QueryBeginDate: { type: 'string' },
+      QueryEndDate: { type: 'string' },
+      PageNo: { type: 'number' },
+      PageSize: { type: 'number' }
+    },
+    required: ['PageNo', 'HisID', 'PageSize']
+  }),
+  async (ctx, next) => {
+    await userCtrl.rechargeHisAccountHistoryAPI(ctx, next)
+  }
+)
+
 router.post('/payNotify', async (ctx, next) => {
     await userCtrl.payNotifyAPI(ctx, next)
   }
