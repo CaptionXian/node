@@ -191,10 +191,10 @@ router.post(
     properties: {
       userId: { type: 'string', format: 'objectid' },
       healthNo: { type: 'string' },
-      hisID: { type: 'string' },
+      HisID: { type: 'string' },
       type: { type: 'boolean' }
     },
-    required: ['userId', 'healthNo', 'hisID', 'type']
+    required: ['userId', 'healthNo', 'HisID', 'type']
   }),
   async (ctx, next) => {
     await userCtrl.userTieCardAPI(ctx, next)
@@ -223,11 +223,11 @@ router.post(
     type: 'object',
     properties: {
       userId: { type: 'string', format: 'objectid' },
-      hisID: { type: 'string' },
+      HisID: { type: 'string' },
       total_fee: { type: 'number' },
       sign: { type: 'string' }
     },
-    required: ['userId', 'total_fee', 'hisID', 'sign']
+    required: ['userId', 'total_fee', 'HisID', 'sign']
   }),
   async (ctx, next) => {
     await userCtrl.rechargeHisAccountAPI(ctx, next)
