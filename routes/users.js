@@ -228,7 +228,7 @@ router.post(
       openid: { type: 'string' },
       sign: { type: 'string' }
     },
-    required: ['userId', 'total_fee', 'HisID', 'openid']
+    required: ['userId', 'total_fee', 'HisID', 'openid', 'sign']
   }),
   async (ctx, next) => {
     await userCtrl.rechargeHisAccountAPI(ctx, next)
