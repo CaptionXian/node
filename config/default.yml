@@ -13,12 +13,12 @@ WECHAT:
   APP_ID: 'wx8b48a6a3cccb1a2d'
   # APP_SECRET: '87f0ba694625725332b55afa26d49c9b'  # 医院
   APP_SECRET: '7d4fbf54118a9b64c2ca319735a7d6db'
-  MCH_ID: ''
+  MCH_ID: '1402749002'
   SCOPE: 'snsapi_userinfo'
-  NOTIFY_URL: ''
+  NOTIFY_URL: 'http://api.tb.idazhao.cn/users/payNotify'
   PREPAY_URL: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
   ORDERQUERY_URL: 'https://api.mch.weixin.qq.com/pay/orderquery'
-  KEY: ''
+  KEY: 'pvvOlt7Z4GVlwNuCNc7dVkc7txZiZBP7'
 
 HIS:
   RECHARGE_URL: 'http://183.250.249.3:10080/ycyy/MobilePayment.asmx'
