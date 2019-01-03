@@ -9,16 +9,18 @@ AUTH:
   EXPIRES: '24h'
 
 WECHAT:
-  # APP_ID: 'wx3dd0ab7b7c6c40fe'  # 医院
-  APP_ID: 'wx8b48a6a3cccb1a2d'
-  # APP_SECRET: '87f0ba694625725332b55afa26d49c9b'  # 医院
-  APP_SECRET: '7d4fbf54118a9b64c2ca319735a7d6db'
-  MCH_ID: '1402749002'
+  APP_ID: 'wx3dd0ab7b7c6c40fe'  # 医院
+  # APP_ID: 'wx8b48a6a3cccb1a2d'
+  APP_SECRET: '87f0ba694625725332b55afa26d49c9b'  # 医院
+  # APP_SECRET: '7d4fbf54118a9b64c2ca319735a7d6db'
+  MCH_ID: '1519799101'  # 医院
+  # MCH_ID: '1402749002'
   SCOPE: 'snsapi_userinfo'
   NOTIFY_URL: 'http://api.tb.idazhao.cn/users/payNotify'
   PREPAY_URL: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
   ORDERQUERY_URL: 'https://api.mch.weixin.qq.com/pay/orderquery'
-  KEY: 'pvvOlt7Z4GVlwNuCNc7dVkc7txZiZBP7'
+  KEY: 'M8vgls5GXvoMEZfDyLHNB57OaEqVD5cw'  # 医院
+  # KEY: 'pvvOlt7Z4GVlwNuCNc7dVkc7txZiZBP7'
 
 HIS:
   RECHARGE_URL: 'http://183.250.249.3:10080/ycyy/MobilePayment.asmx'
