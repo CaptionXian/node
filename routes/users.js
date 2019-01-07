@@ -236,7 +236,7 @@ router.post(
 )
 
 //  查看订单充值信息
-router.post(
+router.get(
   '/getRechargeResult/:_id',
   ajvValidator({
     type: 'object',
