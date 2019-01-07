@@ -228,10 +228,26 @@ router.post(
       openid: { type: 'string' },
       // sign: { type: 'string' }
     },
-    required: ['userId', 'total_fee', 'HisID', 'openid',]
+    required: ['userId', 'total_fee', 'HisID', 'openid' ]
   }),
   async (ctx, next) => {
     await userCtrl.rechargeHisAccountAPI(ctx, next)
+  }
+)
+
+//  查看订单充值信息
+router.post(
+  '/getRechargeResult/:_id',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      userId: { type: 'string', format: 'objectid' },
+      _id: { type: 'string', format: 'objectid' }
+    },
+    required: ['userId', '_id' ]
+  }),
+  async (ctx, next) => {
+    await userCtrl.getRechargeResultAPI(ctx, next)
   }
 )
 
@@ -271,6 +287,55 @@ router.get(
   }),
   async (ctx, next) => {
     await userCtrl.inquireBalanceAPI(ctx, next)
+  }
+)
+
+//  待入账费用查询
+router.get(
+  '/inquireRecordCharge',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' }
+    },
+    required: ['HisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.inquireRecordChargeAPI(ctx, next)
+  }
+)
+
+//  费用结算列表
+router.get(
+  '/costSettlementList',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      QueryBeginDate: { type: 'string' },
+      QueryEndDate: { type: 'string' },
+    },
+    required: ['HisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.costSettlementListAPI(ctx, next)
+  }
+)
+
+//  费用结算明细
+router.get(
+  '/costSettlement',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      HisID: { type: 'string' },
+      QueryBeginDate: { type: 'string' },
+      QueryEndDate: { type: 'string' },
+    },
+    required: ['HisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.costListAPI(ctx, next)
   }
 )
 
