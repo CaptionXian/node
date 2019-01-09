@@ -623,6 +623,23 @@ router.post(
   }
 )
 
+router.get(
+  '/order',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      orderId: { type: 'string', format: 'objectid' },
+      userId: { type: 'string', format: 'objectid' },
+      state: { type: 'number', enum: [0, 1, 2]},
+      startDate: { type: 'string', format: 'date-time' },
+      endDate: { type: 'string', format: 'date-time' }
+    }
+  }),
+  async (ctx, next) => {
+    await hospitalCtrl.getOrderList(ctx, next)
+  }
+)
+
 router.all('*', async ctx => {
   ctx.throw(404, 'notfound')
 })
