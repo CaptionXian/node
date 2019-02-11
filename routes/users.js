@@ -270,9 +270,32 @@ router.get(
   }
 )
 
+//  退款
+router.get(
+  '/refund',
+  ajvValidator({
+    type: 'object',
+    properties: {
+      userId: { type: 'string', format: 'objectid' },
+      HisID: { type: 'string' },
+      refund_fee: { type: 'number' },
+      // sign: { type: 'string' }
+    },
+    required: ['userId', 'total_fee', 'HisID']
+  }),
+  async (ctx, next) => {
+    await userCtrl.refundAPI(ctx, next)
+  }
+)
+
 router.post('/payNotify', async (ctx, next) => {
     await userCtrl.payNotifyAPI(ctx, next)
   }
+)
+
+router.post('/refundNotify', async (ctx, next) => {
+  await userCtrl.refundNotifyAPI(ctx, next)
+}
 )
 
 //  余额查询

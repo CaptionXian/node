@@ -17,8 +17,11 @@ WECHAT:
   # MCH_ID: '1402749002'
   SCOPE: 'snsapi_userinfo'
   NOTIFY_URL: 'http://api.tb.idazhao.cn/users/payNotify'
+  REFUND_NOTIFY_URL: 'http://api.tb.idazhao.cn/users/refundNotify'
   PREPAY_URL: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
+  REFUND_URL: 'https://api.mch.weixin.qq.com/secapi/pay/refund'
   ORDERQUERY_URL: 'https://api.mch.weixin.qq.com/pay/orderquery'
+  REFUNDQUERY_URL: 'https://api.mch.weixin.qq.com/pay/refundquery'
   KEY: 'M8vgls5GXvoMEZfDyLHNB57OaEqVD5cw'  # 医院
   # KEY: 'pvvOlt7Z4GVlwNuCNc7dVkc7txZiZBP7'
 
