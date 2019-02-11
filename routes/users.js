@@ -271,7 +271,7 @@ router.get(
 )
 
 //  退款
-router.get(
+router.post(
   '/refund',
   ajvValidator({
     type: 'object',
