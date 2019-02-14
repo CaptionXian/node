@@ -278,10 +278,10 @@ router.post(
     properties: {
       userId: { type: 'string', format: 'objectid' },
       HisID: { type: 'string' },
-      refund_fee: { type: 'number' },
+      refund_fee: { type: 'number' }
       // sign: { type: 'string' }
     },
-    required: ['userId', 'total_fee', 'HisID']
+    required: ['userId', 'refund_fee', 'HisID']
   }),
   async (ctx, next) => {
     await userCtrl.refundAPI(ctx, next)
