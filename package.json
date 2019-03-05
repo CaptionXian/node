@@ -17,7 +17,9 @@
     "config": "^2.0.1",
     "crypto": "^1.0.1",
     "debug": "^2.6.3",
+    "decimal.js": "^10.0.2",
     "excel-export": "^0.5.1",
+    "fs": "^0.0.1-security",
     "http-errors": "^1.7.1",
     "js-yaml": "^3.12.0",
     "jsonwebtoken": "^8.3.0",
@@ -39,6 +41,7 @@
     "moment": "^2.22.2",
     "mongoose": "^5.2.15",
     "pug": "^2.0.0-rc.1",
+    "request": "^2.88.0",
     "standard": "^12.0.1",
     "urlencode": "^1.1.0",
     "xml2js": "^0.4.19"
